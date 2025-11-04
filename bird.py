@@ -36,9 +36,11 @@ class Bird:
 
     def update(self):
         if self.x > self.max_x:
-            self.dir = 1
-        elif self.x < self.min_x:
             self.dir = -1
+        elif self.x < self.min_x:
+            self.dir = 1
+
+        self.x += self.dir * RUN_SPEED_PPS * game_framework.frame_time
 
         if int(self.frame) == 4:
             self.frame_y = 169
