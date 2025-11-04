@@ -19,9 +19,13 @@ class Bird:
         if Bird.image == None:
             Bird.image = load_image('bird_animation.png')
         self.x, self.y, self.dir = x, y, dir
+        self.frame = 0
     def draw(self):
-        self.image.clip_composite_draw(self.x, self.y)
+        if self.dir == 1:
+            self.image.clip_draw(int(self.frame)* 184, 338, 184, 169, self.x, self.y)
+        else :
+            self.image.clip_composite_draw(int(self.frame)* 184, 338, 184, 169, 0, 'v', self.x, self.y)
         pass
 
     def update(self):
-        pass
+        self.frame = (self.frame + FRAMES_PER_SECOND * game_framework.frame_time) % 14
