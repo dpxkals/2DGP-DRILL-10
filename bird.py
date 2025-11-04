@@ -3,7 +3,7 @@ import game_world
 import game_framework
 
 PIXEL_PER_METER = (10.0 / 0.1)  # 10 pixel 10 cm
-RUN_SPEED_KMPH = 40.0 # Km / Hour 새의 평균 비행 속도 40 km/h
+RUN_SPEED_KMPH = 30.0 # Km / Hour 새의 평균 비행 속도 30 km/h
 RUN_SPEED_MPM = (RUN_SPEED_KMPH * 1000.0 / 60.0)
 RUN_SPEED_MPS = (RUN_SPEED_MPM / 60.0)
 RUN_SPEED_PPS = (RUN_SPEED_MPS * PIXEL_PER_METER)
