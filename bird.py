@@ -27,7 +27,7 @@ class Bird:
         if self.dir == 1:
             self.image.clip_draw(int(self.current_frame)* 183, self.frame_y, 183, 169, self.x, self.y, 50, 45)
         else :
-            self.image.clip_composite_draw(int(self.current_frame)* 183, self.frame_y, 183, 169, 0, 'v', self.x, self.y, 50, 45)
+            self.image.clip_composite_draw(int(self.current_frame)* 183, self.frame_y, 183, 169, 0, 'h', self.x, self.y, 50, 45)
         pass
 
     def update(self):
