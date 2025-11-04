@@ -10,7 +10,7 @@ RUN_SPEED_PPS = (RUN_SPEED_MPS * PIXEL_PER_METER)
 
 TIME_PER_ACTION = 0.2 # 비둘기를 기준으로 약 0.2초라 함
 ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
-FRAMES_PER_ACTION = 14
+FRAMES_PER_ACTION = 5
 FRAMES_PER_SECOND = FRAMES_PER_ACTION * ACTION_PER_TIME
 
 class Bird:
@@ -20,12 +20,17 @@ class Bird:
             Bird.image = load_image('bird_animation.png')
         self.x, self.y, self.dir = x, y, dir
         self.frame = 0
+        self.frame_y = 2
     def draw(self):
         if self.dir == 1:
-            self.image.clip_draw(int(self.frame)* 184, 338, 184, 169, self.x, self.y)
+            self.image.clip_draw(int(self.frame)* 183, self.frame_y * 169, 184, 169, self.x, self.y, 50, 45)
         else :
-            self.image.clip_composite_draw(int(self.frame)* 184, 338, 184, 169, 0, 'v', self.x, self.y)
+            self.image.clip_composite_draw(int(self.frame)* 183, 338, 184, 169, 0, 'v', self.x, self.y, 50, 45)
         pass
 
     def update(self):
-        self.frame = (self.frame + FRAMES_PER_SECOND * game_framework.frame_time) % 14
+        if int(self.frame) == 4:
+            self.frame_y -= 1
+            if self.frame_y < 0 :
+                self.frame_y = 2
+        self.frame = (self.frame + FRAMES_PER_SECOND * game_framework.frame_time) % 5
