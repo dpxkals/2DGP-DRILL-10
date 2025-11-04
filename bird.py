@@ -9,7 +9,7 @@ class Bird:
             Bird.image = load_image('bird_animation.png')
         self.x, self.y, self.dir = x, y, dir
     def draw(self):
-        self.image.draw(self.x, self.y)
+        self.image.clip_composite_draw(self.x, self.y)
         pass
 
     def update(self):
