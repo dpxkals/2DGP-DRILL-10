@@ -34,7 +34,7 @@ def init():
     boy = Boy()
     game_world.add_object(boy, 1)
 
-    bird = Bird(400, 500, 1)
+    bird = Bird(400, 500, 2)
     game_world.add_object(bird, 1)
 
 def update():
