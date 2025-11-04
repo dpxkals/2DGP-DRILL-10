@@ -1,4 +1,5 @@
 from pico2d import *
+import random
 
 from boy import Boy
 from grass import Grass
@@ -34,8 +35,14 @@ def init():
     boy = Boy()
     game_world.add_object(boy, 1)
 
-    bird = Bird(400, 500, -1)
-    game_world.add_object(bird, 1)
+    for bird in range(10):
+        rand_x = random.randint(25,1575)
+        rand_y = random.randint(450, 550)
+        rand_dir = random.randint(0, 1)
+        if rand_dir == 0:
+            rand_dir = -1
+        bird = Bird(rand_x, rand_y, rand_dir)
+        game_world.add_object(bird, 1)
 
 def update():
     game_world.update()
