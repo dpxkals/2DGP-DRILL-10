@@ -3,10 +3,14 @@ import game_world
 import game_framework
 
 class Bird:
+    image = None
     def __init__(self):
-        pass
+        if Bird.image == None:
+            Bird.image = load_image('bird_animation.png')
+        self.x, self.y
 
     def draw(self):
+        self.image.draw(self.x, self.y)
         pass
 
     def update(self):
