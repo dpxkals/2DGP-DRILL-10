@@ -35,6 +35,11 @@ class Bird:
         pass
 
     def update(self):
+        if self.x > self.max_x:
+            self.dir = 1
+        elif self.x < self.min_x:
+            self.dir = -1
+
         if int(self.frame) == 4:
             self.frame_y = 169
             self.frameCnt = 5
