@@ -23,6 +23,10 @@ class Bird:
         self.frameCnt = 5
         self.current_frame = 0
         self.frame_y = 338
+        # 경계
+        self.max_x = 1575
+        self.min_x = 25
+
     def draw(self):
         if self.dir == 1:
             self.image.clip_draw(int(self.current_frame)* 183, self.frame_y, 183, 169, self.x, self.y, 50, 45)
